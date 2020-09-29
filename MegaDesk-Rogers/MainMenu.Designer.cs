@@ -28,13 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnAddQuote = new System.Windows.Forms.Button();
+            this.btnViewQuotes = new System.Windows.Forms.Button();
+            this.btnSearchQuotes = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnAddQuote
+            // 
+            this.btnAddQuote.Location = new System.Drawing.Point(12, 12);
+            this.btnAddQuote.Name = "btnAddQuote";
+            this.btnAddQuote.Size = new System.Drawing.Size(75, 23);
+            this.btnAddQuote.TabIndex = 0;
+            this.btnAddQuote.Text = "&Add Quote";
+            this.btnAddQuote.UseVisualStyleBackColor = true;
+            this.btnAddQuote.Click += new System.EventHandler(this.btnAddQuote_Click);
+            // 
+            // btnViewQuotes
+            // 
+            this.btnViewQuotes.Location = new System.Drawing.Point(12, 62);
+            this.btnViewQuotes.Name = "btnViewQuotes";
+            this.btnViewQuotes.Size = new System.Drawing.Size(75, 23);
+            this.btnViewQuotes.TabIndex = 1;
+            this.btnViewQuotes.Text = "View Quote";
+            this.btnViewQuotes.UseVisualStyleBackColor = true;
+            this.btnViewQuotes.Click += new System.EventHandler(this.btnViewQuotes_Click);
+            // 
+            // btnSearchQuotes
+            // 
+            this.btnSearchQuotes.Location = new System.Drawing.Point(12, 113);
+            this.btnSearchQuotes.Name = "btnSearchQuotes";
+            this.btnSearchQuotes.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchQuotes.TabIndex = 2;
+            this.btnSearchQuotes.Text = "Search Quotes";
+            this.btnSearchQuotes.UseVisualStyleBackColor = true;
+            this.btnSearchQuotes.Click += new System.EventHandler(this.btnSearchQuotes_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(12, 164);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // MainMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSearchQuotes);
+            this.Controls.Add(this.btnViewQuotes);
+            this.Controls.Add(this.btnAddQuote);
+            this.Name = "MainMenu";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnAddQuote;
+        private System.Windows.Forms.Button btnViewQuotes;
+        private System.Windows.Forms.Button btnSearchQuotes;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
