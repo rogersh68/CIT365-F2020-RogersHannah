@@ -16,5 +16,13 @@ namespace MegaDesk_Rogers
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //Navigate back to the main menu, close Search Quotes Form
+            MainMenu viewMenu = (MainMenu)Tag;
+            viewMenu.Show();
+            Close();
+        }
     }
 }
