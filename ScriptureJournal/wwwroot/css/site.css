@@ -87,4 +87,8 @@ body {
     max-width: 500px;
     padding: 30px;
     margin: auto;
+    background-image: url(../quotes.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
