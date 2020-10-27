@@ -7,8 +7,9 @@
 
 <h1>Create</h1>
 
-<h4>JournalEntry</h4>
+<h4>Journal Entry</h4>
 <hr />
+<div class="flex_container">
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -40,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="JournalEntry.Entry" class="control-label"></label>
-                <input asp-for="JournalEntry.Entry" class="form-control" />
+                <textarea asp-for="JournalEntry.Entry" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="JournalEntry.Entry" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,6 +50,8 @@
         </form>
     </div>
 </div>
+    <div class=".image_container"><img src="~/jesus.jpg" alt="jesus" /></div>
+    </div>
 
 <div>
     <a asp-page="Index">Back to List</a>

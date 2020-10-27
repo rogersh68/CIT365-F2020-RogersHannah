@@ -5,13 +5,14 @@
     ViewData["Title"] = "Journal Entries";
 }
 
-<h1>Your Journal Entries</h1>
+<h1 class="page_title_entries">Your Journal Entries</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
 
 <form>
+    <h2>Search</h2>
     <p>
         <select asp-for="EntryBook" asp-items="Model.Books">
             <option value="">All</option>
