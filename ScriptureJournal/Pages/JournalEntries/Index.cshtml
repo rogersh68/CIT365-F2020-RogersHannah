@@ -8,11 +8,11 @@
 <h1 class="page_title_entries">Your Journal Entries</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create"><h3>Create New</h3></a>
 </p>
 
 <form>
-    <h2>Search</h2>
+    <h3>Search</h3>
     <p>
         <select asp-for="EntryBook" asp-items="Model.Books">
             <option value="">All</option>
@@ -30,7 +30,7 @@
                 @Html.DisplayNameFor(model => model.JournalEntry[0].EntryDate)
                 </a>
             </th>
-            <th>
+            <th colspan="2">
                 <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">Scripture</a>
             </th>
             <th>

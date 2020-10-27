@@ -106,9 +106,21 @@ body {
 }
 
 .flex_container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
 }
 
-.img_container img {
-    max-width: 100%;
+.side_img {
+    max-width: 400px;
+    height: auto;
+}
+
+.table thead {
+    background-color: #1B455F;
+    color: white;
+}
+
+.table thead a {
+    color: #B5D6E5;
 }
