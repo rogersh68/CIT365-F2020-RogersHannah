@@ -2,10 +2,10 @@
 @model ScriptureJournal.Pages.JournalEntries.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Journal Entries";
 }
 
-<h1>Index</h1>
+<h1>Your Journal Entries</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -25,10 +25,12 @@
     <thead>
         <tr>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
                 @Html.DisplayNameFor(model => model.JournalEntry[0].EntryDate)
+                </a>
             </th>
             <th>
-                Scripture
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">Scripture</a>
             </th>
             <th>
               
