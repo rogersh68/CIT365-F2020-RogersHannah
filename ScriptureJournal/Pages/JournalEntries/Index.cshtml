@@ -28,16 +28,10 @@
                 @Html.DisplayNameFor(model => model.JournalEntry[0].EntryDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Book)
+                Scripture
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Chapter)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Verse)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Scripture)
+              
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.JournalEntry[0].Entry)
@@ -52,13 +46,7 @@
                 @Html.DisplayFor(modelItem => item.EntryDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Book)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chapter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Verse)
+                @Html.DisplayFor(modelItem => item.Book) @Html.DisplayFor(modelItem => item.Chapter):@Html.DisplayFor(modelItem => item.Verse)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Scripture)
