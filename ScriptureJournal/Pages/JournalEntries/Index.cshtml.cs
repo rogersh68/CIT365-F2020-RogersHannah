@@ -39,7 +39,7 @@ namespace ScriptureJournal.Pages.JournalEntries
 
        
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
             
         {
             //sorting
@@ -49,22 +49,6 @@ namespace ScriptureJournal.Pages.JournalEntries
             IQueryable<JournalEntry> journalEntries = from j in _context.JournalEntry
                                                       select j;
 
-            switch (sortOrder)
-            {
-                case "book_desc":
-                    journalEntries = journalEntries.OrderByDescending(j => j.Book);
-                    break;
-                case "Date":
-                    journalEntries = journalEntries.OrderBy(j => j.EntryDate);
-                    break;
-                case "date_desc":
-                    journalEntries = journalEntries.OrderByDescending(j => j.EntryDate);
-                    break;
-                default:
-                    journalEntries = journalEntries.OrderBy(j => j.Book);
-                    break;
-            }
-
             // Use LINQ to get list of books.
             IQueryable<string> bookQuery = from b in _context.JournalEntry
                                            orderby b.Book
@@ -72,18 +56,66 @@ namespace ScriptureJournal.Pages.JournalEntries
 
             var entries = from e in _context.JournalEntry
                           select e;
-            if (!string.IsNullOrEmpty(SearchString))
+
+            switch (sortOrder)
             {
-                entries = entries.Where(s => s.Entry.Contains(SearchString));
+                case "book_desc":
+                    journalEntries = journalEntries.OrderByDescending(j => j.Book);
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        journalEntries = entries.Where(s => s.Entry.Contains(SearchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(EntryBook))
+                    {
+                        journalEntries = entries.Where(x => x.Book == EntryBook);
+                    }
+                    break;
+                case "Date":
+                    journalEntries = journalEntries.OrderBy(j => j.EntryDate);
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        journalEntries = entries.Where(s => s.Entry.Contains(SearchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(EntryBook))
+                    {
+                        journalEntries = entries.Where(x => x.Book == EntryBook);
+                    }
+                    break;
+                case "date_desc":
+                    journalEntries = journalEntries.OrderByDescending(j => j.EntryDate);
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        journalEntries = entries.Where(s => s.Entry.Contains(SearchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(EntryBook))
+                    {
+                        journalEntries = entries.Where(x => x.Book == EntryBook);
+                    }
+                    break;
+                default:
+                    journalEntries = journalEntries.OrderBy(j => j.Book);
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        journalEntries = entries.Where(s => s.Entry.Contains(SearchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(EntryBook))
+                    {
+                        journalEntries = entries.Where(x => x.Book == EntryBook);
+                    }
+                    break;
             }
 
-            if (!string.IsNullOrEmpty(EntryBook))
-            {
-                entries = entries.Where(x => x.Book == EntryBook);
-            }
-            JournalEntries = await journalEntries.AsNoTracking().ToListAsync();
+            
+
+            
+            
+            JournalEntry = await journalEntries.AsNoTracking().ToListAsync();
             Books = new SelectList(await bookQuery.Distinct().ToListAsync());
-            JournalEntry = await entries.ToListAsync();
+            //JournalEntry = await entries.ToListAsync();
         }
     }
 }

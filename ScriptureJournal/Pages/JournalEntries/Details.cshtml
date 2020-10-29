@@ -6,7 +6,7 @@
 }
 
 <h1>Details</h1>
-
+<div class="flex_container">
 <div>
     <h4>JournalEntry</h4>
     <hr />
@@ -48,6 +48,8 @@
             @Html.DisplayFor(model => model.JournalEntry.Entry)
         </dd>
     </dl>
+</div>
+<div class=".image_container"><img class="side_img" src="~/reading_scriptures.jpg" alt="boy reading scriptures" /></div>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.JournalEntry.ID">Edit</a> |

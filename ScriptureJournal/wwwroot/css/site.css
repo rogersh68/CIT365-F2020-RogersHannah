@@ -107,13 +107,22 @@ body {
 
 .flex_container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 300px;
     grid-gap: 10px;
 }
 
 .side_img {
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .side_img {
+        display: none;
+    }
+    .image_conatiner {
+        display: none;
+    }
 }
 
 .table thead {
