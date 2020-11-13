@@ -26,6 +26,7 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("2000-12-14"),
                         Genre = "Drama",
                         Rating = "PG",
+                        ImageUrl = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQV54lBAfe0covp9IR-AK14dwdE9OGOCjEkhDWPJmYtacWR7j0O",
                         Price = 7.99M
                     },
 
@@ -35,6 +36,7 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("1984-3-13"),
                         Genre = "Comedy",
                         Rating = "PG",
+                        ImageUrl = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQV54lBAfe0covp9IR-AK14dwdE9OGOCjEkhDWPJmYtacWR7j0O",
                         Price = 8.99M
                     },
 
@@ -44,6 +46,7 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("1986-2-23"),
                         Genre = "Action",
                         Rating = "PG",
+                        ImageUrl = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQV54lBAfe0covp9IR-AK14dwdE9OGOCjEkhDWPJmYtacWR7j0O",
                         Price = 9.99M
                     },
 
@@ -53,6 +56,7 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("1959-4-15"),
                         Genre = "Comedy",
                         Rating = "PG",
+                        ImageUrl = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQV54lBAfe0covp9IR-AK14dwdE9OGOCjEkhDWPJmYtacWR7j0O",
                         Price = 3.99M
                     }
                 );
