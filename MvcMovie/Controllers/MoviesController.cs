@@ -19,8 +19,10 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        public async Task<IActionResult> Index(string movieGenre, string searchString, string sortOrder)
         {
+          
+            ViewBag.DateSortParam = sortOrder == "Date" ? "date_desc" : "Date";
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
                                             orderby m.Genre
@@ -29,15 +31,46 @@ namespace MvcMovie.Controllers
             var movies = from m in _context.Movie
                          select m;
 
-            if (!string.IsNullOrEmpty(searchString))
+            switch(sortOrder)
             {
-                movies = movies.Where(s => s.Title.Contains(searchString));
+                case "Date":
+                    movies = movies.OrderBy(m => m.ReleaseDate);
+                    if (!string.IsNullOrEmpty(searchString))
+                    {
+                        movies = movies.Where(s => s.Title.Contains(searchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(movieGenre))
+                    {
+                        movies = movies.Where(x => x.Genre == movieGenre);
+                    }
+                    break;
+                case "date_desc":
+                    movies = movies.OrderByDescending(m => m.ReleaseDate);
+                    if (!string.IsNullOrEmpty(searchString))
+                    {
+                        movies = movies.Where(s => s.Title.Contains(searchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(movieGenre))
+                    {
+                        movies = movies.Where(x => x.Genre == movieGenre);
+                    }
+                    break;
+                default:
+                    if (!string.IsNullOrEmpty(searchString))
+                    {
+                        movies = movies.Where(s => s.Title.Contains(searchString));
+                    }
+
+                    if (!string.IsNullOrEmpty(movieGenre))
+                    {
+                        movies = movies.Where(x => x.Genre == movieGenre);
+                    }
+                    break;
             }
 
-            if (!string.IsNullOrEmpty(movieGenre))
-            {
-                movies = movies.Where(x => x.Genre == movieGenre);
-            }
+            
 
             var movieGenreVM = new MovieGenreViewModel
             {
